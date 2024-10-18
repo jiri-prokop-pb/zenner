@@ -5,23 +5,22 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/egovelox/mozeidon/cmd/bookmarks"
-	"github.com/egovelox/mozeidon/cmd/tabs"
+	"github.com/jiri-prokop-pb/zenner/cmd/tabs"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "mozeidon",
-	Short: "A cli to interact with moz://a firefox web-browser",
+	Use:   "zenner",
+	Short: "A cli to interact with Zen Browser",
 	Long: `
-Mozeidon is a CLI to control a moz://a firefox instance.
-- retrieve tabs, switch between them or close them.
-- retrieve bookmarks, search and open them.
+Zenner is a CLI to control a Zen Browser instance:
+- retrieve tabs
+- switch tabs
+- close tabs
 `,
 }
 
 func init() {
 	rootCmd.AddCommand(tabs.TabsCmd)
-	rootCmd.AddCommand(bookmarks.BookmarksCmd)
 }
 func Execute() {
 	err := rootCmd.Execute()

@@ -5,14 +5,12 @@ import (
 	"fmt"
 )
 
-func (a *App) TabsJson(query string, recentlyClosed bool) {
-	// TODO: handle error
-
-	channel := a.TabsGet(recentlyClosed)
+func (a *App) TabsJson() {
+	channel := a.TabsGet()
 	tabs := <-channel
+	// TODO: handle error
 	tabsAsString, _ := json.Marshal(tabs)
 
 	fmt.Println(string(tabsAsString))
 	<-channel
-
 }

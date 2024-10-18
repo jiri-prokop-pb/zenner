@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/egovelox/mozeidon/cmd"
+	"github.com/jiri-prokop-pb/zenner/cmd"
 )
 
 func main() {

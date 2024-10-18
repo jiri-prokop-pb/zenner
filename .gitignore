@@ -1,1 +1,9 @@
 node_modules
+.DS_Store
+cli/zenner
+cli/dist
+browser-extension/dist
+browser-extension/web-ext-artifacts
+browser-ipc-bridge/zenner-ipc-bridge
+raycast/raycast-env.d.ts
+raycast/dist

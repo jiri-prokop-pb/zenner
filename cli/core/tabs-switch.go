@@ -1,21 +1,14 @@
 package core
 
 import (
-	"os/exec"
-
-	"github.com/egovelox/mozeidon/browser/core/models"
+	"github.com/jiri-prokop-pb/zenner/browser/core/models"
 )
 
-func (a *App) TabsSwitch(tabId string, shouldOpenBrowser bool) {
+func (a *App) TabsSwitch(tabId string) {
 	<-a.browser.Send(
 		models.Command{
 			Command: "switch-tab",
 			Args:    tabId,
 		},
 	)
-
-	if shouldOpenBrowser {
-		cmd := exec.Command("open", "-a", "firefox")
-		cmd.Run()
-	}
 }

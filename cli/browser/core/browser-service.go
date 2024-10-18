@@ -1,8 +1,8 @@
 package core
 
 import (
-	"github.com/egovelox/mozeidon/browser/core/ports"
-	"github.com/egovelox/mozeidon/browser/infra"
+	"github.com/jiri-prokop-pb/zenner/browser/core/ports"
+	"github.com/jiri-prokop-pb/zenner/browser/infra"
 )
 
 type BrowserService struct {
@@ -10,5 +10,5 @@ type BrowserService struct {
 }
 
 func NewBrowserService() *BrowserService {
-	return &BrowserService{infra.NewIpcClient("mozeidon_native_app")}
+	return &BrowserService{infra.NewIpcClient("zenner-ipc-bridge")}
 }

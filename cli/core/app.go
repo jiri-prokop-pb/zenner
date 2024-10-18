@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/egovelox/mozeidon/browser/core"
+	"github.com/jiri-prokop-pb/zenner/browser/core"
 )
 
 type App struct {

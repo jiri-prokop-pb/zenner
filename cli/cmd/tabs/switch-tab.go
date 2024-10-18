@@ -5,10 +5,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/egovelox/mozeidon/core"
+	"github.com/jiri-prokop-pb/zenner/core"
 )
-
-var open bool
 
 var SwitchTabCmd = &cobra.Command{
 	Use:   "switch",
@@ -21,7 +19,7 @@ var SwitchTabCmd = &cobra.Command{
 		"\n" +
 		"e.g" +
 		"\n" +
-		"mozeidon tabs switch 1:100" +
+		"zenner tabs switch 1:100" +
 		"\n\n",
 	Args: cobra.ExactArgs(1),
 	Run: func(_ *cobra.Command, args []string) {
@@ -30,11 +28,6 @@ var SwitchTabCmd = &cobra.Command{
 			fmt.Println(err)
 			return
 		}
-		app.TabsSwitch(args[0], open)
+		app.TabsSwitch(args[0])
 	},
-}
-
-func init() {
-	SwitchTabCmd.Flags().
-		BoolVarP(&open, "open", "o", false, "open browser window")
 }

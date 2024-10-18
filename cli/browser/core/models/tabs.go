@@ -5,11 +5,13 @@ type Tabs struct {
 }
 
 type Tab struct {
-	Id       int64  `json:"id"`
-	WindowId int64  `json:"windowId"`
-	Pinned   bool   `json:"pinned"`
-	Domain   string `json:"domain"`
-	Url      string `json:"url"`
-	Title    string `json:"title"`
-	Active   bool   `json:"active"`
+	Id           int64  `json:"id"`
+	Index        int64  `json:"index"`
+	WindowId     int64  `json:"windowId"`
+	Title        string `json:"title"`
+	Pinned       bool   `json:"pinned"`
+	Url          string `json:"url"`
+	FaviconUrl   string `json:"faviconUrl"`
+	LastAccessed int64 `json:"lastAccessed"`
+	Active       bool   `json:"active"`
 }

@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/egovelox/mozeidon/browser/core/models"
+	"github.com/jiri-prokop-pb/zenner/browser/core/models"
 )
 
 func (a *App) NewTab(query string) {

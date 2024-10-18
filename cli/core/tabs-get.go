@@ -3,25 +3,18 @@ package core
 import (
 	"encoding/json"
 
-	"github.com/egovelox/mozeidon/browser/core/models"
+	"github.com/jiri-prokop-pb/zenner/browser/core/models"
 )
 
-func (a *App) TabsGet(recentlyClosed bool) <-chan models.Tabs {
+func (a *App) TabsGet() <-chan models.Tabs {
 
 	channel := make(chan models.Tabs)
-
-	var commandName string
-	if recentlyClosed {
-		commandName = "get-recently-closed-tabs"
-	} else {
-		commandName = "get-tabs"
-	}
 
 	go func() {
 		defer close(channel)
 		for result := range a.browser.Send(
 			models.Command{
-				Command: commandName,
+				Command: "get-tabs",
 			},
 		) {
 			tabs := models.Tabs{}

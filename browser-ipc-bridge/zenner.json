@@ -1,0 +1,9 @@
+{
+    "name": "zenner",
+    "description": "Native messaging add-on to interact with your browser",
+    "path": "/Users/jiriprokop/.local/bin/zenner-ipc-bridge",
+    "type": "stdio",
+    "allowed_extensions": [
+        "zenner@synaptiko.cz"
+    ]
+}

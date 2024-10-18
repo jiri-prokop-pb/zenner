@@ -1,0 +1,15 @@
+{
+  "name": "zenner-browser-extension",
+  "version": "0.1.0",
+  "description": "background script for zenner browser extension",
+  "author": "jiri-prokop-pb",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.16.0",
+    "npm": ">=10.8.1"
+  },
+  "devDependencies": {
+    "@types/firefox-webext-browser": "120.0.4",
+    "typescript": "5.6.3"
+  }
+}

@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/egovelox/mozeidon/core"
+	"github.com/jiri-prokop-pb/zenner/core"
 )
 
 var NewTabCmd = &cobra.Command{
@@ -20,11 +20,11 @@ var NewTabCmd = &cobra.Command{
 		"\n" +
 		"e.g" +
 		"\n" +
-		"mozeidon tabs new https://mozilla.org" +
+		"zenner tabs new https://root.cz" +
 		"\n" +
 		"e.g" +
 		"\n" +
-		"mozeidon tabs new what is mozeidon add-on extension" +
+		"zenner tabs new what is zen browser" +
 		"\n\n",
 	Run: func(_ *cobra.Command, args []string) {
 		app, err := core.NewApp()
@@ -34,7 +34,4 @@ var NewTabCmd = &cobra.Command{
 		}
 		app.NewTab(strings.Join(args, " "))
 	},
-}
-
-func init() {
 }

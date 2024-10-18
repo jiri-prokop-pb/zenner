@@ -1,7 +1,5 @@
-import { Image } from "@raycast/api";
-import { getFavicon } from "@raycast/utils";
+import { Icon, Image } from "@raycast/api";
 import { ReactNode } from "react";
-import { TAB_TYPE } from "../constants";
 
 export interface Preferences {
   readonly searchEngine: string;
@@ -9,43 +7,61 @@ export interface Preferences {
 
 export class Tab {
   constructor(
-    public readonly id: string,
+    public readonly id: number,
+    public readonly index: number,
     public readonly pinned: boolean,
     public readonly windowId: number,
     public readonly title: string,
     public readonly url: string,
-    public readonly domain: string,
+    public readonly faviconUrl: string,
+    public readonly lastAccessed: number,
     public readonly active: boolean,
   ) {}
 
-  urlWithoutScheme(): string {
-    return this.url.replace(/(^\w+:|^)\/\//, "").replace("www.", "");
+  get domain(): string {
+    if (this.url === "") {
+      return "";
+    }
+
+    const url = new URL(this.url);
+
+    return url.hostname !== "" ? url.hostname.replace("www.", "") : this.url;
   }
 
-  googleFavicon(): Image.ImageLike {
-    return getFavicon(this.url, { mask: Image.Mask.RoundedRectangle });
+  get favicon(): Image.ImageLike {
+    return { source: this.faviconUrl, fallback: Icon.Globe };
+  }
+
+  toJSON() {
+    return {
+      id: this.id,
+      index: this.index,
+      pinned: this.pinned,
+      windowId: this.windowId,
+      title: this.title,
+      url: this.url,
+      faviconUrl: this.faviconUrl,
+      lastAccessed: this.lastAccessed,
+      active: this.active,
+      domain: this.domain,
+      favicon: this.favicon,
+    };
   }
 }
 
-export interface MozeidonTab {
+export interface ZennerTab {
   id: number;
+  index: number;
   windowId: number;
   pinned: boolean;
-  domain: string;
   title: string;
   url: string;
+  faviconUrl: string;
+  lastAccessed: number;
   active: boolean;
 }
 
-export interface MozeidonBookmark {
-  id: string;
-  parent: string;
-  title: string;
-  url: string;
-}
-
 export interface TabState {
-  type: TAB_TYPE;
   tabs: Tab[];
 }
 

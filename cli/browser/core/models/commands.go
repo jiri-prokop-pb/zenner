@@ -1,7 +1,7 @@
 package models
 
 type Command struct {
-	Command string `json:"command"        binding:"required"`
+	Command string `json:"command" binding:"required"`
 	Args    string `json:"args,omitempty"`
 }
 

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/james-barrow/golang-ipc"
+	ipc "github.com/james-barrow/golang-ipc"
 
-	"github.com/egovelox/mozeidon/browser/core/models"
+	"github.com/jiri-prokop-pb/zenner/browser/core/models"
 )
 
 type IpcClient struct {
